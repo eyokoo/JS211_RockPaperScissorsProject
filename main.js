@@ -86,6 +86,40 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
   });
+
+//additional test for RPS
+describe(`RPS Unit Test Assignment`,function(){
+  it(`should handle bad input`, function(){
+    let actual = rockPaperScissors(`Boot`, `Roach`);
+    let expected = `Boot`;
+    assert.equal(actual,expected);
+  })
+
+  it(`Should Handle Vulgar Language`, function(){
+    let actual = rockPaperScissors("private parts", "other private parts");
+    let expected = "No bad language please";
+    assert.equal(actual,expected);
+  })
+
+  it('should handle types of element', function(){
+    let actual = rockPaperScissors("emerald", "rice paper");
+    let expected = "Invalid input";
+    assert.equal(actual,expected);
+  })
+
+  it('should handle numbers', function(){
+    let actual = rockPaperScissors("0", "2");
+    let expected = "Please use words, not numbers";
+    assert.equal(actual,expected);
+  })
+
+it('should handle incorrect spelling', function(){
+    let actual = rockPaperScissors("roc", "sissors");
+    let expected = "Please check your spelling:)";
+    assert.equal(actual,expected);
+  })
+})
+
 } else {
 
   // always returns ask the user for another input
